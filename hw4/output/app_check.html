@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Customs: Live App Check (Problem 11)</title>
+    <style>
+      :root {
+        --navy: #00356b;
+        --navy-deep: #0b2342;
+        --cream: #f7f2e8;
+        --paper: #fffdf8;
+        --line: #e6dccb;
+        --gold: #7d5f31;
+        --ink: #172338;
+        --muted: #5d6475;
+        --pass: #2c6e49;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      main {
+        width: min(1100px, 100% - 2.5rem);
+        margin: 0 auto;
+        padding: 3rem 0 4rem;
+      }
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--navy-deep);
+        line-height: 1.15;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin: 0 0 0.6rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+        margin: 0;
+      }
+      .eyebrow {
+        margin: 0 0 0.6rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .intro {
+        color: var(--muted);
+        max-width: 48rem;
+        margin: 0;
+      }
+      .summary {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 1.6rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .summary li {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.88rem;
+      }
+      .test {
+        margin-top: 2.5rem;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(19, 35, 63, 0.05), 0 10px 30px rgba(19, 35, 63, 0.06);
+      }
+      .test-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 1.4rem 1.6rem 1rem;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(44, 110, 73, 0.1);
+        color: var(--pass);
+        font-weight: 700;
+        font-size: 0.82rem;
+      }
+      .asked {
+        margin: 0 1.6rem 1rem;
+        padding: 0.7rem 1rem;
+        border-left: 3px solid var(--navy);
+        background: var(--cream);
+        border-radius: 0 10px 10px 0;
+        font-size: 0.95rem;
+      }
+      figure {
+        margin: 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: #e9e2d4;
+      }
+      figure a {
+        display: block;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .explain {
+        padding: 1.1rem 1.6rem 1.4rem;
+      }
+      .explain p {
+        margin: 0 0 0.6rem;
+      }
+      .verified {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .verified strong {
+        color: var(--ink);
+      }
+      footer {
+        margin-top: 2.5rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">MGT 409 · Homework 4 · Problem 11</p>
+      <h1>Campus Customs: Live App Check</h1>
+      <p class="intro">
+        Three features tested on the running website (React frontend on port 5173, FastAPI backend on port 8000) as a
+        guest shopper in Chrome, on October 24, 2026. Each answer was compared with the store's database. Click a screenshot
+        to open it at full size.
+      </p>
+      <ul class="summary">
+        <li>✅ Inventory lookup</li>
+        <li>✅ Dynamic product search</li>
+        <li>✅ Usability improvement (Problem 9)</li>
+      </ul>
+
+      <section class="test">
+        <div class="test-head">
+          <h2>Test 1: Inventory lookup</h2>
+          <span class="badge">✓ Passed</span>
+        </div>
+        <p class="asked"><strong>Customer asked:</strong> “How much is the Basic Hoodie Big Yale, and do you have it in XL?”</p>
+        <figure>
+          <a href="app_check_images/01-inventory-lookup.png">
+            <img src="app_check_images/01-inventory-lookup.png" alt="Chat window: the assistant replies that the Basic Hoodie Big Yale is $68.00 and XL is available with only 2 left, with a product card below." />
+          </a>
+        </figure>
+        <div class="explain">
+          <p>
+            The chatbot looked the product up in the live catalogue and inventory and replied that it costs <strong>$68.00</strong> and XL is
+            available with <strong>only 2 left</strong>, showing a clickable product card. These are live database values,
+            not a guess.
+          </p>
+          <p class="verified">
+            <strong>Checked against the database:</strong> the Basic Hoodie Big Yale has price $68.00 and 2 units of size XL
+            in inventory. Both match the reply exactly.
+          </p>
+        </div>
+      </section>
+
+      <section class="test">
+        <div class="test-head">
+          <h2>Test 2: Dynamic product search</h2>
+          <span class="badge">✓ Passed</span>
+        </div>
+        <p class="asked"><strong>Customer asked:</strong> “What Yale hoodies do you have?”</p>
+        <figure>
+          <a href="app_check_images/02-dynamic-product-search.png">
+            <img src="app_check_images/02-dynamic-product-search.png" alt="Products page titled Results for Yale hoodies, with a banner saying 27 matching products and hoodie product cards, next to the chat explaining it found 27 hoodies." />
+          </a>
+        </figure>
+        <div class="explain">
+          <p>
+            From one chat question, the website itself updated without a page reload. It switched to “Results for ‘Yale
+            hoodies’” and showed <strong>27 matching product cards</strong>, while the chat summarized the results and offered a
+            “View 27 products on the page” button.
+          </p>
+          <p class="verified">
+            <strong>Checked against the database:</strong> all 27 cards are hoodies, matching the 27 hoodies in the catalogue, and
+            they appear in the same order as the backend's database search for the same query.
+          </p>
+        </div>
+      </section>
+
+      <section class="test">
+        <div class="test-head">
+          <h2>Test 3: Usability improvement: follow-up questions remember the product</h2>
+          <span class="badge">✓ Passed</span>
+        </div>
+        <p class="asked">
+          <strong>Customer asked:</strong> “How much is the Yale Dad Hoodie?” and then <strong>“Does it come in blue?”</strong>
+        </p>
+        <figure>
+          <a href="app_check_images/03-follow-up-context.png">
+            <img src="app_check_images/03-follow-up-context.png" alt="Chat window: after a question about the Yale Dad Hoodie, the follow-up 'Does it come in blue?' is answered with 'Yes, it comes in navy blue', with the Yale Dad Hoodie card." />
+          </a>
+        </figure>
+        <div class="explain">
+          <p>
+            This is the Problem 9 conversation-context improvement. The follow-up “Does it come in blue?” never names the
+            product, yet the chatbot knew “it” meant the <strong>Yale Dad Hoodie</strong> and answered “Yes, it comes in navy
+            blue”, without asking the customer to repeat the product name.
+          </p>
+          <p class="verified">
+            <strong>Checked against the database:</strong> the Yale Dad Hoodie's colors are navy blue and white, and its price
+            is $68.00.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        Screenshots were captured from the live website with Chrome at 1440 × 900 and saved in
+        <code>app_check_images/</code>. No database records were changed by these tests (guest chats are not saved).
+      </footer>
+    </main>
+  </body>
+</html>

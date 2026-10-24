@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+pydantic-ai-slim[openai]
+python-dotenv

@@ -1,0 +1,39 @@
+# ---- Secrets: never commit real keys ----
+.env
+.env.*
+!.env.example
+
+# ---- Local data pack: database and product photos stay on your computer ----
+hw4/data/*
+!hw4/data/README.md
+data.zip
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ---- Node / build output ----
+node_modules/
+dist/
+*.tsbuildinfo
+npm-debug.log*
+
+# ---- Audit trail temporary files (the audit_trail.json itself IS committed) ----
+*.json.tmp
+hw4/output/audit_trail.unreadable-*.json
+
+# ---- OS / editor / tool folders ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/
+*.log
